@@ -13,19 +13,22 @@ namespace nfi
     {
         static void Main(string[] args)
         {
-            //if (args.Length == 0)
-            //{
-            //    Console.Write("");
-            //    return;
-            //}
-            //var fi = new FileInfo(args[0]);
-            //if (!fi.Exists)
-            //{
-            //    Console.Write("");
-            //    return;
-            //}
+#if false
+            if (args.Length == 0)
+            {
+                Console.Write("");
+                return;
+            }
+            var fi = new FileInfo(args[0]);
+            if (!fi.Exists)
+            {
+                Console.Write("");
+                return;
+            }
             var f = @"D:\SVNRoot\src\Client\win\teacherMoveOffice\zntbkt\bin\Debug\zntbkt.exe";
-            //var f = args[0];
+#else
+            var f = args[0];
+#endif
             var ver = Assembly.LoadFile(f).GetName().Version;
             var v = $"V{ver.Major}.{ver.MajorRevision}.{ver.MinorRevision}";
             Console.Write(v);
